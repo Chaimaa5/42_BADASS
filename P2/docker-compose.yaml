@@ -1,0 +1,27 @@
+services:
+  oouazahr_router:
+    container_name: oouazahr_router
+    build: ./router
+    # ports : 
+    #   - "5000:5000"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - NET_RAW
+    command: /bin/bash -c "/usr/lib/frr/frrinit.sh restart && tail -f"
+    networks:
+      - badass_network
+    restart: always
+  oouazahr_host:
+    image: alpine:latest
+    container_name: oouazahr_host
+    command : /bin/sh -c "while true; do sleep 3600; done"
+    networks:
+      - badass_network
+    restart: always
+networks:
+  badass_network:
+    driver: bridge
+  
+  
+  
