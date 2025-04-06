@@ -15,7 +15,7 @@ services:
   oouazahr_host:
     container_name: cel-mhan-host
     build: ./host
-      command : /bin/sh -c "while true; do sleep 3600; done"
+    command : /bin/sh -c "while true; do sleep 3600; done"
     networks:
      - badass_network
     restart: always
