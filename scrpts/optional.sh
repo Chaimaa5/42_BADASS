@@ -5,6 +5,6 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-chrgp $SUDO_USER /usr/bin/dumpcap
+chgrp $SUDO_USER /usr/bin/dumpcap
 chmod 754 /usr/bin/dumpcap
 setcap 'CAP_NET_RAW+eip CAP_NET_ADMIN+eip' /usr/bin/dumpcap
